@@ -9,13 +9,8 @@ public class Practise4 {
         // TODO: implement method that accepts list of strings and a boolean which indicates order way
         // TODO: returns them ordering by their length.
 
-        Comparator<String> comparator = Comparator.comparing(s -> s.length());
-        if (decreasing) {
-            comparator = Comparator.comparing(s -> s.length(), Comparator.reverseOrder());
-        }
-
         return strings.stream()
-                .sorted(comparator)
+                .sorted(!decreasing ? Comparator.comparing(String::length) : Comparator.comparing(String::length).reversed())
                 .toList();
     }
 }

@@ -20,6 +20,6 @@ public class Practise7 {
         return payments.stream()
                 .filter(payment -> payment.getCreatedDate() >= startDate)
                 .filter(payment -> payment.getCreatedDate() <= endDate)
-                .allMatch(payment -> payment.isReconciliationCompleted());
+                .allMatch(Payment::isReconciliationCompleted);
     }
 }
